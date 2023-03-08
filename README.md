@@ -1,5 +1,15 @@
 # React Testing Library with Jest framework
 
+# React Testing Library
+
+React Testing Library offers a set of testing helpers that structure your tests based on user interactions
+
+# Jest
+
+Jest is a JavaScript test runner that provides resources for writing and running tests.
+
+`The number of renders determines the no of tests`
+
 Types of test
 `Unit Test` -> Individual blocks of an app, eg classes, functions
 `Integration Test` -> Combination of units
@@ -100,3 +110,50 @@ test('the shopping list has milk on it', () => {
 expect(shoppingList).toContain('milk');
 expect(new Set(shoppingList)).toContain('milk');
 });
+
+# Priority Order for Queries
+
+Tests should resemble how users interact with your code (component, page)
+
+1 - getByRole - This is used to query every element that is exposed to the accessibility tree
+
+2 - getByLabelText - really good for form fields
+
+3 - getByPlaceholderText -
+
+4 - getByText - It can be used to find non-interactive elements like div's, spans and paragraphs
+
+5 - getByDisplayValue
+
+6 - getByAltText
+
+7 - getByTitle
+
+8 - getByTestId
+
+# TextMatch - regex
+
+screen.getByText(/World/) // substring match
+
+screen.getByText(/world/i) // substring match ignore case
+
+screen.getByText(/^hello world$/i) // full string match ignore case
+
+# -------- textMatch -- custom Function
+
+screen.getByText((content) => content.startsWith("string"))
+
+# findBy and findAllBy
+
+`findBy`
+
+-   returns a promise which resolves when an element is found which matches the given query
+-   The promise is rejected if no element is found or if more than one element is found after a default timeout of 1000ms
+
+`findAllBy`
+
+-   returns a promise which resolves to an array of elements when any elements are found which match the given query
+-   The promise is rejected if no elements are found after a default timeout of 1000ms
+
+screen.debug() --> to visualize a formatted state of the DOM tree
+logRoles() ---> to print out the list of all implicit of other roles within the DOM tree

@@ -5,6 +5,7 @@ export const Application = () => {
 			<h2>Section 1</h2>
 			<p>All fields are mandatory</p>
 			<span title="close">X</span>
+			<span title="open">Open</span>
 			<img
 				src="https://via.placeholder.com/150"
 				alt="a person with a laptop"
@@ -16,8 +17,8 @@ export const Application = () => {
 					<input
 						type="text"
 						id="name"
-						placeholder="Fullname"
-						value="Vishwas"
+						placeholder="fullName"
+						value="Titan"
 						onChange={() => {}}
 					/>
 				</div>
@@ -26,7 +27,7 @@ export const Application = () => {
 					<textarea id="bio" />
 				</div>
 				<div>
-					<label htmlFor="job-location">Job location</label>
+					<label htmlFor="job-location">Name</label>
 					<select id="job-location">
 						<option value="">Select a country</option>
 						<option value="US">United States</option>
