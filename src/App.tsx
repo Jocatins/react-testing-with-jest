@@ -1,12 +1,19 @@
 import "./App.css";
 import { Application } from "./components/application/Application";
+import Counter from "./components/counter/counter";
+import { MuiMode } from "./components/mui/mui-mode";
+import { AppProviders } from "./components/providers/app-providers";
 
 function App() {
-	return (
-		<div className="App">
-			<Application />
-		</div>
-	);
+  return (
+    <>
+      <AppProviders>
+        <div className="App">
+          <MuiMode />
+        </div>
+      </AppProviders>
+    </>
+  );
 }
 
 export default App;

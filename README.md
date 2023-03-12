@@ -38,11 +38,11 @@ expect(data).toEqual({one: 1, two: 2});
 
 `Truthiness`
 
--   toBeNull matches only null
--   toBeUndefined matches only undefined
--   toBeDefined is the opposite of toBeUndefined
--   toBeTruthy matches anything that an if statement treats as true
--   toBeFalsy matches anything that an if statement treats as false
+- toBeNull matches only null
+- toBeUndefined matches only undefined
+- toBeDefined is the opposite of toBeUndefined
+- toBeTruthy matches anything that an if statement treats as true
+- toBeFalsy matches anything that an if statement treats as false
 
 e.g
 test('null', () => {
@@ -76,7 +76,7 @@ expect(value).toBe(4);
 expect(value).toEqual(4);
 });
 
--   For floating point equality, use toBeCloseTo
+- For floating point equality, use toBeCloseTo
 
 test('adding floating point numbers', () => {
 const value = 0.1 + 0.2;
@@ -147,13 +147,72 @@ screen.getByText((content) => content.startsWith("string"))
 
 `findBy`
 
--   returns a promise which resolves when an element is found which matches the given query
--   The promise is rejected if no element is found or if more than one element is found after a default timeout of 1000ms
+- returns a promise which resolves when an element is found which matches the given query
+- The promise is rejected if no element is found or if more than one element is found after a default timeout of 1000ms
 
 `findAllBy`
 
--   returns a promise which resolves to an array of elements when any elements are found which match the given query
--   The promise is rejected if no elements are found after a default timeout of 1000ms
+- returns a promise which resolves to an array of elements when any elements are found which match the given query
+- The promise is rejected if no elements are found after a default timeout of 1000ms
 
 screen.debug() --> to visualize a formatted state of the DOM tree
 logRoles() ---> to print out the list of all implicit of other roles within the DOM tree
+
+# User- Event
+
+It is a companion library for testing library that simulates user interactions by dispatching
+the events that would happen if the interaction took place in a browser.
+It is the recommended way to test user interactions with RTL
+
+# fireEvent
+
+It is a method from RTL which is used to dispatch DOM events
+
+`userEvent` allows you to describe a user interaction instead of a concrete event
+
+- Updating user event ---> npm i @testing-library/user-event@14.0.0-alpha.14
+
+# Pointer Interactions
+
+`Convenience API`
+click(), dblClick() and tripleClick is not a pointer API, it is a convenient API that calls the pointer APIs
+hover() and unhover()
+Convenience APIs are used when writing tests
+tab()
+
+# Pointer APIs
+
+pointer({keys: '[Mouse-Left]'})
+it accepts an obj as args and specifies the key property
+pointer({keys: '[Mouse-Left][mouse-right]'})
+pointer( '[Mouse-Left][mouse-right]')
+
+# Utility API
+
+type()
+clear()
+selectOptions()
+deselectOptions()
+upload()
+
+# Clipboard APIs
+
+copy()
+cut()
+paste()
+
+# Static Analysis Testing
+
+- TypeScript
+- EsLint
+- Prettier
+- Husky
+- lint-staged
+
+npm i --save-dev eslint-plugin-jest-dom
+npm i prettier --save-dev --exact
+npm i eslint-config-prettier
+
+# Husky
+
+npx husky-init and npm install
