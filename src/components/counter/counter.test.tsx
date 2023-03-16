@@ -18,7 +18,16 @@ describe("Counter", () => {
     expect(countElement).toHaveTextContent("0");
   });
 
-  test("renders a count of 1 after clicking on the increment button", async () => {
+  test("reset button renders a count of 0 after clicked", async () => {
+    user.setup();
+    render(<Counter />);
+    const resetButton = screen.getByRole("button", { name: "Reset" });
+    await user.click(resetButton);
+    const countElement = screen.getByRole("heading");
+    expect(countElement).toHaveTextContent("0");
+  });
+
+  test("increment button renders a count of 1 after clicking ", async () => {
     user.setup();
     render(<Counter />);
     const incrementButton = screen.getByRole("button", {
@@ -61,11 +70,20 @@ describe("Counter", () => {
     const incrementButton = screen.getByRole("button", {
       name: "Increment",
     });
+    const resetButton = screen.getByRole("button", { name: "Reset" });
     await user.tab();
     expect(incrementButton).toHaveFocus();
     await user.tab();
     expect(amountInput).toHaveFocus();
+
     await user.tab();
     expect(setButton).toHaveFocus();
+    await user.tab();
+    expect(resetButton).toHaveFocus();
+  });
+  test("renders the reset button", () => {
+    render(<Counter />);
+    const resetButton = screen.getByRole("button", { name: "Reset" });
+    expect(resetButton).toBeInTheDocument();
   });
 });

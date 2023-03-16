@@ -15,12 +15,38 @@ Queries are the methods that testing library provides to find elements on the pa
 
 To find a single element on the page
 
--   getBy
--   queryBy
--   findBy
+- getBy
+- queryBy
+- findBy
 
 To find multiple elements on the page
 
--   getAllBy
--   queryAllBy
--   findAllBy
+- getAllBy
+- queryAllBy
+- findAllBy
+
+`getBy` - This is used to find a single element in the DOM based on a specific criteria.
+Example --> `getByRole`, `getByText`, `getByTestId`
+
+`getAllBy` - This set of query method is used to find multiple elements in the DOM based
+on specific criteria
+Example ---> `getAllByRole`, `getAllByText` , `getAllBy`
+
+`queryBy` - This set of query methods is used to find an element in the DOM.
+These queries should be used when you need to find a specific element and you are not sure
+will be present in the DOM.
+Example ---> `queryByRole`, `queryByText`, `queryByTestId`, `queryBy`
+
+`queryAllBy` - This set of query methods is used to find multiple elements in the DOM.
+These methods return an empty array if no matching elements are found.
+Example ---> `queryAllByRole`, `queryAllByText`, `queryAllBy`
+
+`findBy` - This set of query methods is used to find a single element in the DOM based
+on a specific criteria asynchronously. These queries should be used when you need to find
+a specific element in the DOM that may not be present immediately, such as when waiting
+for an API call to be completed.
+Example ---> `findBy`, `findByRole`, `findByText`
+
+`waitFor` - This utility function is used to wait for a specific condition to be true before continuing
+with a test. Examples of conditions, wait for appearance or disappearance of an element, a change in
+text-content of an element, for async behaviors.

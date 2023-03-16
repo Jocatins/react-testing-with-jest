@@ -3,6 +3,7 @@ import { useState } from "react";
 const Counter = () => {
   const [count, setCount] = useState(0);
   const [amount, setAmount] = useState(0);
+
   return (
     <>
       <div>
@@ -15,6 +16,7 @@ const Counter = () => {
           onChange={(e) => setAmount(parseInt(e.target.value))}
         />
         <button onClick={() => setCount(amount)}>Set</button>
+        <button onClick={() => setCount(0)}>Reset</button>
       </div>
     </>
   );
